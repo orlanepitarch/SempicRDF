@@ -97,35 +97,28 @@ public class SempicRDFStore extends BasicSempicRDFStore {
     /*
     Can be simplified
     */
-    public List<Resource> searchPhotos(List<Resource> types, List<Resource> depicts, Resource takenBy, Resource takenIn, List<Resource> restrictionDepicted, long ownerId) {
+    public List<Resource> searchPhotos(List<String> depicts, String takenBy, String takenIn, long ownerId) {
         
-        if (depicts==null) depicts=Collections.emptyList();
-        if (types==null) types=Collections.emptyList();
-        if (restrictionDepicted==null) restrictionDepicted=Collections.emptyList();
+        if (depicts==null || depicts.isEmpty()) depicts=Collections.emptyList();
         StringBuilder query = new StringBuilder();
         query.append("CONSTRUCT {?p a <"+Projet.Picture+">} "
                 + "WHERE {"
                 + "?p a <"+Projet.Picture+"> .");
-                if (takenBy !=null) {
+                if (takenBy != null && !takenBy.equals(Namespaces.photoNS+"#")) {
                     query.append("?p <"+Projet.Author+"> <"+takenBy+">.");
                 }
-                if (takenIn !=null) {
+                if (takenBy != null && !takenIn.equals(Namespaces.photoNS+"#")) {
                     query.append("?p <"+Projet.Where+"> <"+takenIn+">.");
                 }
-                types.forEach(t -> {query.append("?p a <"+t+">.");});
                 
                 depicts.forEach(t -> {
-                    if (t.isAnon())
-                        query.append("?p <"+Projet.Subject+"> ?d. ?d a <"+t.getPropertyResourceValue(RDF.type)+"> .");
-                    else
-                        query.append("?p <"+Projet.Subject+"> <"+t+"> .");
+                    query.append("?p <"+Projet.Subject+"> <"+t+"> .");
                 });
-                restrictionDepicted.forEach( r -> {query.append("?p <"+Projet.Subject+"> [ <"+r.getPropertyResourceValue(OWL.onProperty)+"> <"+r.getPropertyResourceValue(OWL.hasValue)+">] .");});
                 if (ownerId!=-1) {
                     query.append("?p <"+Projet.ownerId+"> "+ownerId+" .");
                 }
                query.append("}");
-        //System.out.println(query);  
+        System.out.println(query);  
         return cnx.queryConstruct(query.toString()).listSubjects().toList();
     }
     

@@ -5,7 +5,6 @@
 package fr.uga.miashs.sempic.rdf;
 
 import fr.uga.miashs.sempic.model.rdf.Projet;
-import fr.uga.miashs.sempic.model.rdf.SempicOnto;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
