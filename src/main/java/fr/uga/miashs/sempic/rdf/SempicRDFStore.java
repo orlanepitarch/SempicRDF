@@ -5,7 +5,7 @@
  */
 package fr.uga.miashs.sempic.rdf;
 
-import fr.uga.miashs.sempic.model.rdf.SempicOnto;
+import fr.uga.miashs.sempic.model.rdf.Projet;
 import java.util.*;
 import javax.ejb.Stateless;
 import org.apache.jena.query.ParameterizedSparqlString;
@@ -103,26 +103,26 @@ public class SempicRDFStore extends BasicSempicRDFStore {
         if (types==null) types=Collections.emptyList();
         if (restrictionDepicted==null) restrictionDepicted=Collections.emptyList();
         StringBuilder query = new StringBuilder();
-        query.append("CONSTRUCT {?p a <"+SempicOnto.Photo+">} "
+        query.append("CONSTRUCT {?p a <"+Projet.Picture+">} "
                 + "WHERE {"
-                + "?p a <"+SempicOnto.Photo+"> .");
+                + "?p a <"+Projet.Picture+"> .");
                 if (takenBy !=null) {
-                    query.append("?p <"+SempicOnto.takenBy+"> <"+takenBy+">.");
+                    query.append("?p <"+Projet.Author+"> <"+takenBy+">.");
                 }
                 if (takenIn !=null) {
-                    query.append("?p <"+SempicOnto.takenIn+"> <"+takenIn+">.");
+                    query.append("?p <"+Projet.Where+"> <"+takenIn+">.");
                 }
                 types.forEach(t -> {query.append("?p a <"+t+">.");});
                 
                 depicts.forEach(t -> {
                     if (t.isAnon())
-                        query.append("?p <"+SempicOnto.depicts+"> ?d. ?d a <"+t.getPropertyResourceValue(RDF.type)+"> .");
+                        query.append("?p <"+Projet.Subject+"> ?d. ?d a <"+t.getPropertyResourceValue(RDF.type)+"> .");
                     else
-                        query.append("?p <"+SempicOnto.depicts+"> <"+t+"> .");
+                        query.append("?p <"+Projet.Subject+"> <"+t+"> .");
                 });
-                restrictionDepicted.forEach( r -> {query.append("?p <"+SempicOnto.depicts+"> [ <"+r.getPropertyResourceValue(OWL.onProperty)+"> <"+r.getPropertyResourceValue(OWL.hasValue)+">] .");});
+                restrictionDepicted.forEach( r -> {query.append("?p <"+Projet.Subject+"> [ <"+r.getPropertyResourceValue(OWL.onProperty)+"> <"+r.getPropertyResourceValue(OWL.hasValue)+">] .");});
                 if (ownerId!=-1) {
-                    query.append("?p <"+SempicOnto.ownerId+"> "+ownerId+" .");
+                    query.append("?p <"+Projet.ownerId+"> "+ownerId+" .");
                 }
                query.append("}");
         //System.out.println(query);  
@@ -147,7 +147,7 @@ public class SempicRDFStore extends BasicSempicRDFStore {
         if (instanciatedProperty!=null) {
                 query+= "[ <"+instanciatedProperty.getURI()+"> ?s";
                 if (ownerId != -1) {
-                    query+="; <"+SempicOnto.ownerId+"> "+ownerId;
+                    query+="; <"+Projet.ownerId+"> "+ownerId;
                 }
                 query+="] .";
         }
@@ -192,7 +192,7 @@ public class SempicRDFStore extends BasicSempicRDFStore {
                 query.append("FILTER (EXISTS {[ <").append(instanciatedProperty.getURI()).append("> ?s");
                 
                 if (ownerId != -1) {
-                    query.append("; <"+SempicOnto.ownerId+"> "+ownerId);
+                    query.append("; <"+Projet.ownerId+"> "+ownerId);
                 }
                 query.append("] . ?s a ?c}) .");
                 
@@ -214,10 +214,10 @@ public class SempicRDFStore extends BasicSempicRDFStore {
         String query = "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
                 + "CONSTRUCT {?s rdfs:label ?l} "
                 + "WHERE {?s rdfs:label ?l . "
-                + "?s rdfs:subClassOf <"+SempicOnto.Photo+"> ."
+                + "?s rdfs:subClassOf <"+Projet.Picture+"> ."
                 + "[ a ?s ";
         if (ownerId!=-1) {
-            query+="; <"+SempicOnto.ownerId+"> "+ownerId;
+            query+="; <"+Projet.ownerId+"> "+ownerId;
         }
         query+="] }";
         //System.out.println(query);
@@ -250,9 +250,9 @@ public class SempicRDFStore extends BasicSempicRDFStore {
                             "  _:x owl:hasValue ?v ." +
                             "  _:x rdfs:label ?l" +
                             " } WHERE {" +
-                            "  [ <"+SempicOnto.depicts+"> ?smt";
+                            "  [ <"+Projet.Subject+"> ?smt";
         if (ownerId!=-1) {
-            query+="; <"+SempicOnto.ownerId+"> "+ownerId;
+            query+="; <"+Projet.ownerId+"> "+ownerId;
         }
         query+="].";
                query+=      "  ?smt ?p ?v." +

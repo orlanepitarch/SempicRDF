@@ -5,7 +5,7 @@
  */
 package fr.uga.miashs.sempic.rdf;
 
-import fr.uga.miashs.sempic.model.rdf.SempicOnto;
+import fr.uga.miashs.sempic.model.rdf.Projet;
 import javax.ejb.Stateless;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Model;
@@ -27,17 +27,17 @@ public class BasicSempicRDFStore extends RDFStore {
     public BasicSempicRDFStore() {
         prefixes = PrefixMapping.Factory.create();
         prefixes.withDefaultMappings(PrefixMapping.Standard);
-        prefixes.setNsPrefix("sempic", SempicOnto.NS);
+        prefixes.setNsPrefix("sempic", Projet.NS);
     }
     
     public Resource createPhoto(long photoId, long albumId, long ownerId) {
         // create an empty RDF graph
         Model m = ModelFactory.createDefaultModel();
         // create an instance of Photo in Model m
-        Resource pRes = m.createResource(Namespaces.getPhotoUri(photoId), SempicOnto.Photo);
+        Resource pRes = m.createResource(Namespaces.getPhotoUri(photoId), Projet.Picture);
 
-        pRes.addLiteral(SempicOnto.albumId, albumId);
-        pRes.addLiteral(SempicOnto.ownerId, ownerId);
+        pRes.addLiteral(Projet.albumId, albumId);
+        pRes.addLiteral(Projet.ownerId, ownerId);
 
         saveModel(m);
 
@@ -73,7 +73,7 @@ public class BasicSempicRDFStore extends RDFStore {
                         + "OPTIONAL {"
                         + "?photo ?p1 ?o1 ."
                         + "?o1 rdfs:label ?o2 ."
-                        + "FILTER (?p1 IN (<" + SempicOnto.depicts + ">,<" + SempicOnto.takenIn + ">,<" + SempicOnto.takenBy + ">)) "
+                        + "FILTER (?p1 IN (<" + Projet.Subject + ">,<" + Projet.Where + ">,<" + Projet.Author + ">)) "
                         +"}"
                  + "}");
         pss.setIri("photo", pUri);

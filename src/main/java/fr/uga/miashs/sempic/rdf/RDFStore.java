@@ -4,6 +4,7 @@
  */
 package fr.uga.miashs.sempic.rdf;
 
+import fr.uga.miashs.sempic.model.rdf.Projet;
 import fr.uga.miashs.sempic.model.rdf.SempicOnto;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,6 +42,8 @@ public class RDFStore {
     public RDFStore() {
         cnx = RDFConnectionFactory.connect(ENDPOINT_QUERY, ENDPOINT_UPDATE, ENDPOINT_GSP);
     }
+     
+    
 
     public final static String getLabel(Resource r) {
         if (r == null) {

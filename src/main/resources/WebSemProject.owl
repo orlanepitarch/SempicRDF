@@ -18,6 +18,23 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#albumId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#albumId">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>in album</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#ownerId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#ownerId">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label>has owner</rdfs:label>
+    </owl:DatatypeProperty>
     
 
 
