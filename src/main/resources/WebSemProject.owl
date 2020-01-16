@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#"
-     xml:base="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject"
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/WebSemProject"
+     xml:base="http://www.semanticweb.org/ontologies/WebSemProject"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject"/>
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:WebSemProject="http://www.semanticweb.org/ontologies/WebSemProject#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ontologies/WebSemProject"/>
     
 
 
@@ -18,152 +19,283 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#albumId -->
+    
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#albumId">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:label>in album</rdfs:label>
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Author -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Author">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#CityOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#CityOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Country"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Events -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Events">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Friend -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Friend">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Job -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Job">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Work"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Location -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Location">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#MonumentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#MonumentOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Owner -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Owner">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Pet"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Domestic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Pet -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Pet">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Domestic"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Sport -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Sport">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Subject -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Subject">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Animal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#When -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#When">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Periode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Where -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Where">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#isBrotherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#isBrotherOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Male"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#isFatherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#isFatherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#isParentOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Male"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#isFriendOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#isFriendOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#isMotherOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#isMotherOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#isParentOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Female"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#isParentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#isParentOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#isSisterOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#isSisterOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Female"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Date">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Periode"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#ownerId -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Event-Name -->
 
-    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#ownerId">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:label>has owner</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Event-Name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Author -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#First-Name -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Author">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Picture"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#First-Name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Last-Name -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Picture"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event"/>
-    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Last-Name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Job -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Location-Name -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Job">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Work"/>
-    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Location-Name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Location -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Pet-Name -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Location">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Place"/>
-    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Pet-Name">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Animal"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Domestic"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Owner -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Title -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Owner">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Pet"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Title">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Pet -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#albumId -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Pet">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Domestic"/>
-    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#albumId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Subject -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#ownerId -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Subject">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Picture"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Animal"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Landscape"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Place"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Where -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Where">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Picture"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Place"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hasFatherOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hasFatherOf">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hasParent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hasMotherOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hasMotherOf">
-        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hasParent"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hasParent -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hasParent">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#isBrotherOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#isBrotherOf">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Male"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#isFriendOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#isFriendOf">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#isSisterOf -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#isSisterOf">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Female"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
-    </owl:ObjectProperty>
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#ownerId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -178,274 +310,478 @@
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Animal -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Activity -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Animal"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Area -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Animal -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Area">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Place"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Animal"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Area -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Area">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Beach -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Autumn -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Beach">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Landscape"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Autumn">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Season"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Basketball -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Place"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Basketball">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Country -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Beach -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Country">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Place"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Beach">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Desert -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Bike -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Desert">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Landscape"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Bike">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Domestic -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Boxing -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Domestic">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Animal"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Boxing">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Bungee_jumping -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event"/>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Female -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Female">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Bungee_jumping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Forest -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#City -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Forest">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Landscape"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#City">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Holidays -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Country -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Holidays">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Landscape -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Dance -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Landscape"/>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Male -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Male">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Dance">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Meeting -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Date -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Meeting">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Date">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Periode"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Desert -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Mountain -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Mountain">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Landscape"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Desert">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Party -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Domestic -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Party">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Domestic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Animal"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Event -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#People"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Picture -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Farewell_party -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Picture"/>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Place -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Place"/>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Seminar -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Seminar">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Event"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Farewell_party">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Female -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Animal"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Female">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Work -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Festival -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Work"/>
-    
-
-
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#cat -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#cat">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Domestic"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Festival">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#cheetah -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Football -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#cheetah">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Football">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#deer -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Forest -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#deer">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Forest">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#dog -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Holidays -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#dog">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Domestic"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Holidays">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#dolphin -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Horse_riding -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#dolphin">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Horse_riding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#duck -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#House-warming_party -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#duck">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#House-warming_party">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#elephant -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Karate -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#elephant">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Karate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#fox -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Landscape -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#fox">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Male -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Male">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hamster -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Meeting -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hamster">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Domestic"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Meeting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hen -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Monument -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hen">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Mountain -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Mountain">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#horse -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Paragliding -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#horse">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Domestic"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Paragliding">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#lion -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Party -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#lion">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Party">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#rabbit -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#People -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#rabbit">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Wild"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Periode -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Periode"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Picture -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Place -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Race -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Race">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Season -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Season">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Periode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Seminar -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Seminar">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Show -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Show">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Skateboard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Skateboard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Ski -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Ski">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Spring -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Spring">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Season"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Summer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Summer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Season"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Surf -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Surf">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Wild -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Wild">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Animal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Winter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Winter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Season"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Work -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Work"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Yoga -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Yoga">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#cat -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#cat">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Domestic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#cheetah -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#cheetah">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#deer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#deer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#dog -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#dog">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Domestic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#dolphin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#dolphin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#duck -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#duck">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#elephant -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#elephant">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#fox -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#fox">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#hamster -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#hamster">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Domestic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#hen -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#hen">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#horse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#horse">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Domestic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#lion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#lion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#rabbit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#rabbit">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Wild"/>
     </owl:Class>
     
 
@@ -461,330 +797,483 @@
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Alpes -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Alpes -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Alpes">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Mountain"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Alpes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Mountain"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Australia -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Angouleme_cartoon_festival -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Australia">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Country"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Angouleme_cartoon_festival">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Festival"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Bastille -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Australia -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Bastille">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Australia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Country"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Big_Ben -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Bastille -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Big_Ben">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Bastille">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+        <WebSemProject:MonumentOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Grenoble"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Bondi_Beach -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Big_Ben -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Bondi_Beach">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Beach"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Big_Ben">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+        <WebSemProject:MonumentOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#London"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Coliseum -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Bondi_Beach -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Coliseum">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Bondi_Beach">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Beach"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Deauville -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Bugs_Bunny -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Deauville">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Bugs_Bunny">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#rabbit"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Deauville_Beach -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Cannes_festival -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Deauville_Beach">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Beach"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Cannes_festival">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Festival"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Eclair -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Christmas_day -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Eclair">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#horse"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Christmas_day">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Date"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Eiffel_Tower -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Coliseum -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Eiffel_Tower">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Coliseum">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+        <WebSemProject:MonumentOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Rome"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Fiesty -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Daffy_duck -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Fiesty">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#dog"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Daffy_duck">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#duck"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#France -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Deauville -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#France">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Country"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Deauville">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <WebSemProject:CityOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#France"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Germany -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Deauville_Beach -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Germany">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Country"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Deauville_Beach">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Beach"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Grenoble -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Dog_show -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Grenoble">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Dog_show">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Show"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Italy -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Eclair -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Italy">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Country"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Eclair">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#horse"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#London -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Eiffel_Tower -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#London">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Eiffel_Tower">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+        <WebSemProject:MonumentOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Paris"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Louna -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Fiesty -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Louna">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#dog"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Fiesty">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#dog"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Loustic -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Flipper -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Loustic">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hamster"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Flipper">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#dolphin"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Lyon -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#France -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Lyon">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#France">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Country"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Madrid -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Germany -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Madrid">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Germany">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Country"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Margaux -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Grenoble -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Margaux">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Female"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Grenoble">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <WebSemProject:CityOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#France"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Mathilde -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Horse_show -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Mathilde">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Female"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Horse_show">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Show"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Maxence -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Italy -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Maxence">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Male"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Italy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Country"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Michel -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#London -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Michel">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Male"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#London">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <WebSemProject:CityOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#United_Kingdom"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Mélissa -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Louna -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Melissa">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Female"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Louna">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#dog"/>
+        <WebSemProject:Owner rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Mathilde"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Opera_House -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Loustic -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Opera_House">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Loustic">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#hamster"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Ophélie -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Lyon -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Ophelie">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Female"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Lyon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <WebSemProject:CityOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#France"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Palombaggia_Beach -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Madrid -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Palombaggia_Beach">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Beach"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Madrid">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <WebSemProject:CityOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Spain"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Paris -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Margaux -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Paris">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Margaux">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Female"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Piccadilly_Circus -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Mathilde -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Piccadilly_Circus">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Mathilde">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Female"/>
+        <WebSemProject:Friend rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Maxence"/>
+        <WebSemProject:Pet rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Louna"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Quentin -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Maxence -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Quentin">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Male"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Maxence">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Male"/>
+        <WebSemProject:Friend rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Yann"/>
+        <WebSemProject:isBrotherOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Quentin"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Rome -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Melissa -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Rome">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Melissa">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Female"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Sahara -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Michel -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Sahara">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Desert"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Michel">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Male"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Sleepy -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Motor_show -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Sleepy">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#cat"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Motor_show">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Show"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Sydney -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Opera_House -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Sydney">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Opera_House">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+        <WebSemProject:MonumentOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Sydney"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Tom -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Ophelie -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Tom">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Male"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Ophelie">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Female"/>
+        <WebSemProject:isSisterOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Tom"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Triumphal_Arch -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Palombaggia_Beach -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Triumphal_Arch">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Monument"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Palombaggia_Beach">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Beach"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#United_Kingdom -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Paris -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#United_Kingdom">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Country"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Paris">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <WebSemProject:CityOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#France"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Vosges -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Piccadilly_Circus -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Vosges">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Mountain"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Piccadilly_Circus">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+        <WebSemProject:MonumentOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#London"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Whitehaven_Beach -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Quentin -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Whitehaven_Beach">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Beach"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Quentin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Male"/>
+        <WebSemProject:isBrotherOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Maxence"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Yann -->
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Rome -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Yann">
-        <rdf:type rdf:resource="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Male"/>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Rome">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <WebSemProject:CityOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Italy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Sahara -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Sahara">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Desert"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Scar -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Scar">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#lion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Sleepy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Sleepy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#cat"/>
+        <WebSemProject:Owner rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Yann"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Spain -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Spain">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Sydney -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Sydney">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#City"/>
+        <WebSemProject:CityOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Australia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Thanksgiving -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Thanksgiving">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Date"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Tom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Tom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Male"/>
+        <WebSemProject:isBrotherOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Ophelie"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Trip_to_7_Laux -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Trip_to_7_Laux">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Holidays"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Trip_to_Hawai -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Trip_to_Hawai">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Holidays"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Trip_to_London -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Trip_to_London">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Holidays"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Triumphal_Arch -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Triumphal_Arch">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
+        <WebSemProject:MonumentOf rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Paris"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#United_Kingdom -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#United_Kingdom">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Vosges -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Vosges">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Mountain"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Whitehaven_Beach -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Whitehaven_Beach">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Beach"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Yann -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Yann">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Male"/>
+        <WebSemProject:Pet rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Sleepy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/WebSemProject#Alpe_d&apos;huez_film_festival -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Alpe_dHuez_film_festival">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Festival"/>
     </owl:NamedIndividual>
     
 
@@ -797,40 +1286,9 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Area"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#City"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Country"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Beach"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Desert"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Forest"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#Mountain"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#cheetah"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#deer"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#dolphin"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#duck"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#elephant"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#fox"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#hen"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#lion"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject#rabbit"/>
-        </owl:members>
-    </rdf:Description>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.13) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 

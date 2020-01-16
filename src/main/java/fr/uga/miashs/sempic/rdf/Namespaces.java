@@ -11,7 +11,7 @@ package fr.uga.miashs.sempic.rdf;
  */
 public class Namespaces {
     
-    public final static String photoNS = "http://www.semanticweb.org/vivi/ontologies/2020/0/WebSemProject";
+    public final static String photoNS = "http://www.semanticweb.org/ontologies/WebSemProject";
     //public final static String photoNS = "http://miashs.univ-grenoble-alpes.fr/photo";
 
     

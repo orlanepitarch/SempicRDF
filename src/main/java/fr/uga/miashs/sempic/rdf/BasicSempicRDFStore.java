@@ -60,7 +60,7 @@ public class BasicSempicRDFStore extends RDFStore {
      * @param id
      * @return
      */
-    public Resource readPhoto(long id) {
+    public String readPhoto(long id) {
         String pUri = Namespaces.getPhotoUri(id);
         ParameterizedSparqlString pss = new ParameterizedSparqlString(prefixes);
         pss.setBaseUri(Namespaces.photoNS);
@@ -69,18 +69,16 @@ public class BasicSempicRDFStore extends RDFStore {
                 "CONSTRUCT {"
                         + "?photo ?p ?o ."
                         + "?photo ?p1 ?o1 ."
-                        + "?o1 rdfs:label ?o2 ."
                 + "} WHERE { "
                         + "?photo ?p ?o ."
                         + "OPTIONAL {"
                         + "?photo ?p1 ?o1 ."
-                        + "?o1 rdfs:label ?o2 ."
                         + "FILTER (?p1 IN (<" + Projet.Subject + ">,<" + Projet.Where + ">,<" + Projet.Author + ">)) "
                         +"}"
                  + "}");
         pss.setIri("photo", pUri);
         
         Model m = cnx.queryConstruct(pss.asQuery());
-        return m.getResource(pUri);
+        return m.toString();
     }
 }

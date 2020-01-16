@@ -24,7 +24,7 @@ public class ExampleRDFStore {
         
         // Album 1, de l'owner 1
         // Photo 1 : Description -> Photo de Patrick et Medor, prise par Pierre à Grenoble
-        Resource pRes = s.createPhoto(1555, 1777, 1999);
+        Resource pRes = s.createPhoto(Long.parseLong("1555"), Long.parseLong("1777"), Long.parseLong("1999"));
         m.add(pRes, Projet.Subject, Projet.Margaux);
         m.add(pRes, Projet.Where, Projet.Deauville);
         

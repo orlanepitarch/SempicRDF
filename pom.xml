@@ -54,6 +54,11 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>org.ow2.util.bundles</groupId>
+            <artifactId>commons-logging-1.1.1</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
             <version>8.0.1</version>

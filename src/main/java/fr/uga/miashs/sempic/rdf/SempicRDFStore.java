@@ -15,6 +15,7 @@ import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.sparql.syntax.Template;
 import org.apache.jena.vocabulary.*;
+import org.apache.jena.vocabulary.RDF;
 
 /**
  *
@@ -93,15 +94,43 @@ public class SempicRDFStore extends BasicSempicRDFStore {
         picture.getModel().add(m);
     }
     
+    /* Add annotation to the picture i.e. triple <picture,p,type> is added to the triple store.
+     * if o has properties, hey are also added.
+     * @param picture
+     * @param p
+     * @param o 
+     */
+    public void addAnnotationByType(Resource picture, String p, String type) {
+        if (type==null) return;
+        /*if (!picture.getURI().startsWith(Namespaces.photoNS)) {
+            return;
+        }*/
+        
+        Model m = ModelFactory.createDefaultModel();
+        Property prop = m.getProperty(p);
+        Resource typeR = m.getResource(type);
+        Resource obj = m.createResource();
+        obj.addProperty(RDF.type, typeR);
+        m.add(picture,prop,obj);
+        System.out.println("ADD ANNO " + picture + "      "+ prop + "       "+  obj);
+        if (obj.getModel()!=null) {
+             m.add(obj.listProperties());
+        }
+        System.out.println("GHJHNJNBN  " + m);
+        m.write(System.out, "turtle");
+        saveModel(m);
+        picture.getModel().add(m);
+    }
+    
     public void setAnnotation(Resource picture, Property annotProp, Resource r) {
         deleteAnnotation(picture,annotProp);
         addAnnotation(picture, annotProp.getURI(), r.getURI());
     }
     
     /*
-    Can be simplified
+    rdf.searchPhotos(getDepicts(), getResource(takenBy), getResource(where), getResource(when), getResource(whenType), getResource(whereType), getResource(whoWhatType), Long.parseLong(userId));
     */
-    public List<Resource> searchPhotos(List<String> depicts, String takenBy, String takenIn, long ownerId) {
+    public List<Resource> searchPhotos(List<String> depicts, String takenBy, String takenIn, String when, String whenType, String whereType, String whoWhatType,  long ownerId) {
         
         if (depicts==null || depicts.isEmpty()) depicts=Collections.emptyList();
         StringBuilder query = new StringBuilder();
@@ -111,10 +140,21 @@ public class SempicRDFStore extends BasicSempicRDFStore {
                 if (takenBy != null && !takenBy.equals(Namespaces.photoNS+"#")) {
                     query.append("?p <"+Projet.Author+"> <"+takenBy+">.");
                 }
-                if (takenBy != null && !takenIn.equals(Namespaces.photoNS+"#")) {
+                if (takenIn != null && !takenIn.equals(Namespaces.photoNS+"#")) {
                     query.append("?p <"+Projet.Where+"> <"+takenIn+">.");
                 }
-                
+                if (when != null && !when.equals(Namespaces.photoNS+"#")) {
+                    query.append("?p <"+Projet.When+"> <"+when+">.");
+                }
+                if (whenType != null && !whenType.equals(Namespaces.photoNS+"#")) {
+                    query.append("?p <"+Projet.When+"> ?d. ?d a <"+whenType+">.");
+                }
+                if (whereType != null && !whereType.equals(Namespaces.photoNS+"#")) {
+                    query.append("?p <"+Projet.Where+"> ?d. ?d a <"+whereType+">.");
+                }
+                if (whoWhatType != null && !whoWhatType.equals(Namespaces.photoNS+"#")) {
+                    query.append("?p <"+Projet.Subject+"> ?d. ?d a <"+whoWhatType+">.");
+                }
                 depicts.forEach(t -> {
                     query.append("?p <"+Projet.Subject+"> <"+t+"> .");
                 });
