@@ -16,6 +16,6 @@ public class Namespaces {
 
     
     public static String getPhotoUri(long photoId) {
-        return photoNS+photoId;
+        return photoNS+"/"+photoId;
     }
 }

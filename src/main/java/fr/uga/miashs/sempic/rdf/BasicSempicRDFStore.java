@@ -34,14 +34,16 @@ public class BasicSempicRDFStore extends RDFStore {
         // create an empty RDF graph
         Model m = ModelFactory.createDefaultModel();
         // create an instance of Photo in Model m
-        Resource pRes = m.createResource(Namespaces.getPhotoUri(photoId), Projet.Picture);
+        System.out.println(m.getResource(Namespaces.getPhotoUri(photoId)));
+            Resource pRes = m.createResource(Namespaces.getPhotoUri(photoId), Projet.Picture);
 
-        pRes.addLiteral(Projet.albumId, albumId);
-        pRes.addLiteral(Projet.ownerId, ownerId);
+            pRes.addLiteral(Projet.albumId, albumId);
+            pRes.addLiteral(Projet.ownerId, ownerId);
 
-        saveModel(m);
-
-        return pRes;
+            saveModel(m);
+            System.out.println("CREATE PHOTO " + pRes);
+            return pRes;
+        
     }
 
     public void deletePhoto(long photoId) {

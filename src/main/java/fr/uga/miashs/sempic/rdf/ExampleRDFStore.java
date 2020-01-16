@@ -24,11 +24,12 @@ public class ExampleRDFStore {
         
         // Album 1, de l'owner 1
         // Photo 1 : Description -> Photo de Patrick et Medor, prise par Pierre à Grenoble
-        Resource pRes = s.createPhoto(1, 1, 1);
-        m.add(pRes, Projet.Subject, Projet.Yann);
-        m.add(pRes, Projet.Where, Projet.Grenoble);
+        Resource pRes = s.createPhoto(1555, 1777, 1999);
+        m.add(pRes, Projet.Subject, Projet.Margaux);
+        m.add(pRes, Projet.Where, Projet.Deauville);
         
         m.write(System.out, "turtle");
+        System.out.print("jjhn,kj," + m);
         s.saveModel(m);
      }
 }

@@ -73,25 +73,29 @@ public class SempicRDFStore extends BasicSempicRDFStore {
      * @param p
      * @param o 
      */
-    public void addAnnotation(Resource picture, Property p, Resource o) {
+    public void addAnnotation(Resource picture, String p, String o) {
         if (o==null) return;
         /*if (!picture.getURI().startsWith(Namespaces.photoNS)) {
             return;
         }*/
+        
         Model m = ModelFactory.createDefaultModel();
-        if (o.getModel()!=null) {
-             m.add(o.listProperties());
+        Property prop = m.getProperty(p);
+        Resource obj = m.getResource(o);
+        System.out.println("ADD ANNO " + picture + "      "+ prop + "       "+  obj);
+        if (obj.getModel()!=null) {
+             m.add(obj.listProperties());
         }
-        m.add(picture, p, o);
-        cnx.begin(ReadWrite.WRITE);
-        cnx.load(m);
-        cnx.commit();
+        m.add(picture, prop, obj);
+        System.out.println("GHJHNJNBN  " + m);
+        m.write(System.out, "turtle");
+        saveModel(m);
         picture.getModel().add(m);
     }
     
     public void setAnnotation(Resource picture, Property annotProp, Resource r) {
         deleteAnnotation(picture,annotProp);
-        addAnnotation(picture, annotProp, r);
+        addAnnotation(picture, annotProp.getURI(), r.getURI());
     }
     
     /*
