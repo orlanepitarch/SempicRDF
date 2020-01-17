@@ -10,6 +10,8 @@ package fr.uga.miashs.sempic.rdf;
  * @author Jerome David <jerome.david@univ-grenoble-alpes.fr>
  */
 import org.apache.jena.query.*;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdfconnection.*;
 
 public class ExampleRDFConnection {
@@ -23,13 +25,18 @@ public class ExampleRDFConnection {
         
         RDFConnection cnx = RDFConnectionFactory.connect(ENDPOINT_QUERY, ENDPOINT_UPDATE, ENDPOINT_GSP);
         
-        QueryExecution qe = cnx.query("SELECT DISTINCT ?s WHERE {?s ?p ?o}");
-        ResultSet rs = qe.execSelect();
-        while (rs.hasNext()) {
-            QuerySolution qs = rs.next();
-            System.out.println(qs.getResource("s"));
-        }
-
+//        QueryExecution qe = cnx.query("SELECT DISTINCT ?s WHERE {?s ?p ?o}");
+//        ResultSet rs = qe.execSelect();
+//        while (rs.hasNext()) {
+//            QuerySolution qs = rs.next();
+//            System.out.println(qs.getResource("s"));
+//        }
+        Model m = ModelFactory.createDefaultModel();
+        m.read("src/main/resources/Donnees.ttl");
+        m.write(System.out, "turtle");
+        cnx.begin(ReadWrite.WRITE);
+        cnx.load(m);
+        cnx.commit();
         cnx.close();     
     }
 }

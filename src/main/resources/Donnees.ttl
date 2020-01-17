@@ -1,0 +1,88 @@
+@prefix : <http://www.semanticweb.org/ontologies/WebSemProject#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/ontologies/WebSemProject> .
+
+<http://www.semanticweb.org/ontologies/WebSemProject> rdf:type owl:Ontology .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Photo5
+:Photo5 rdf:type owl:NamedIndividual ;
+        :Events :Dog_show ;
+        :Subject :Louna ;
+        rdfs:label "Photo5" .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Photo4
+:Photo4 rdf:type owl:NamedIndividual ,
+        :Picture ;
+        :Events :Yann_Farewell_party ;
+        rdfs:label "Photo4" .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Photo3
+:Photo3 rdf:type owl:NamedIndividual ,
+        :Picture ;
+        :Events :Trip_to_7_Laux ;
+        :Date "2019-12-28T06:00:00"^^xsd:dateTime ;
+        :Where :Eiffel_Tower ;
+        rdfs:label "Photo3" .
+
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Photo2
+:Photo2 rdf:type owl:NamedIndividual ;
+        :Events :Margaux_House-warming_party ;
+        :Subject :Maxence ,
+        :Yann ;
+        :Author :Yann;
+        rdfs:label "Photo2" .
+
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Photo1
+:Photo1 rdf:type owl:NamedIndividual ,
+                :Picture ;
+                :Subject :Louna ;
+                :Where :Grenoble ;
+                rdfs:label "Photo1" .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Eiffel_Tower
+:Eiffel_Tower rdf:type owl:NamedIndividual ,
+                       :Monument .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Grenoble
+:Grenoble rdf:type owl:NamedIndividual ,
+                   :City ;
+          owl:sameAs <http://dbpedia.org/resource/Grenoble>.
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Louna
+:Louna rdf:type owl:NamedIndividual ,
+                :dog .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Maxence
+:Maxence rdf:type owl:NamedIndividual ,
+                  :Male ;
+         :Friend :Yann .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Yann
+:Yann rdf:type owl:NamedIndividual ,
+               :Male .
+
+:France owl:sameAs <http://dbpedia.org/resource/France>.
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Margaux_House-warming_party
+:Margaux_House-warming_party rdf:type owl:NamedIndividual ,
+                             :House-warming_party ;
+         rdfs:label "Margaux_House-warming_party" .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Yann_Farewell_party
+:Yann_Farewell_party rdf:type owl:NamedIndividual ,
+                              :Farewell_party ;
+                    rdfs:label "Yann_Farewell_party" .
+
+###  http://www.semanticweb.org/ontologies/WebSemProject#Dog_show
+:Dog_show rdf:type owl:NamedIndividual ,
+                   :Show .
+                  
+###  http://www.semanticweb.org/ontologies/WebSemProject#Trip_to_7_Laux
+:Trip_to_7_Laux rdf:type owl:NamedIndividual ,
+                         :Holidays .

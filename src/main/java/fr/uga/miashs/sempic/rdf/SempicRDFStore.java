@@ -10,6 +10,8 @@ import java.util.*;
 import javax.ejb.Stateless;
 import org.apache.jena.query.ParameterizedSparqlString;
 import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
 import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.ReadWrite;
 import org.apache.jena.rdf.model.*;
@@ -105,7 +107,6 @@ public class SempicRDFStore extends BasicSempicRDFStore {
         /*if (!picture.getURI().startsWith(Namespaces.photoNS)) {
             return;
         }*/
-        
         Model m = ModelFactory.createDefaultModel();
         Property prop = m.getProperty(p);
         Resource typeR = m.getResource(type);
@@ -120,6 +121,22 @@ public class SempicRDFStore extends BasicSempicRDFStore {
         m.write(System.out, "turtle");
         saveModel(m);
         picture.getModel().add(m);
+    }
+    
+    
+    public boolean askType(String type) {
+        Model m = ModelFactory.createDefaultModel();
+        Query q = QueryFactory.create("ASK { ?t a <"+type+"> }");
+        QueryExecution qe = QueryExecutionFactory.create(q,m);
+        return qe.execAsk();
+        
+    }
+    
+    public boolean askIndividu(String ind) {
+        Model m = ModelFactory.createDefaultModel();
+        Query q = QueryFactory.create("ASK { ?t a <"+ind+"> }");
+        QueryExecution qe = QueryExecutionFactory.create(q,m);
+        return qe.execAsk();
     }
     
     public void setAnnotation(Resource picture, Property annotProp, Resource r) {

@@ -109,11 +109,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Subject">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Animal"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Event"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#People"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
     </owl:ObjectProperty>
     
 
@@ -131,7 +127,9 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ontologies/WebSemProject#Where">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Picture"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Place"/>        
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Landscape"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/ontologies/WebSemProject#Monument"/>
     </owl:ObjectProperty>
     
 
